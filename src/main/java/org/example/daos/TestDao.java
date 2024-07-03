@@ -18,8 +18,10 @@ public class TestDao {
                     "SHOW DATABASES;");
 
             while (resultSet.next()) {
+                Systems.out.println(resultSet.getString("Database"))
                 databases.add(resultSet.getString("Database"));
             }
+            System.out.println("Finished retrieving database names");
         }
 
         return databases;
