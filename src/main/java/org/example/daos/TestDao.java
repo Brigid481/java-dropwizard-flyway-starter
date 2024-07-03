@@ -1,6 +1,6 @@
 package org.example.daos;
 
-import javax.servlet.ServletOutputStream;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TestDao {
+    @SuppressWarnings({"checkstyle:LineLength", "checkstyle:RegexpSingleline"})
     public List<String> testConnection() throws SQLException {
         List<String> databases = new ArrayList<>();
 
@@ -18,13 +19,18 @@ public class TestDao {
             long start = System.currentTimeMillis();
             ResultSet resultSet = statement.executeQuery(
                     "SHOW DATABASES;");
+
+
+            System.out.println("Retrieving database names");
+
             long end = System.currentTimeMillis();
 
-            System.out.println("Total time to execute query in milliseconds: " + (end - start));
+            System.out.println(
+                    "Time to execute in milliseconds:" + (end - start));
 
-            System.out.println("Retrieving database names")
+
             while (resultSet.next()) {
-                Systems.out.println(resultSet.getString("Database"))
+                System.out.println(resultSet.getString("Database"));
                 databases.add(resultSet.getString("Database"));
             }
             System.out.println("Finished retrieving database names");
